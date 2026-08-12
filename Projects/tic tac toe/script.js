@@ -24,6 +24,8 @@ const resetgame = () => {
   boxes.forEach((box) => {
     box.innerText = "";
     box.disabled = false;
+    box.classList.remove("x", "o");
+
   });
   msgcontainer.classList.add("hide");
 };
@@ -32,9 +34,11 @@ boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turn0) {
       box.innerText = "o";
+      box.classList.add("o");
       turn0 = false;
     } else {
       box.innerText = "x";
+      box.classList.add("x");
       turn0 = true;
     }
     box.disabled = true;
